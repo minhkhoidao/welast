@@ -19,7 +19,6 @@ const Modal: FC<ModalProps> = ({ open, onClose }) => {
     }))
   );
 
-  console.log(item, "item");
   return (
     <>
       {open && (
@@ -33,14 +32,16 @@ const Modal: FC<ModalProps> = ({ open, onClose }) => {
           <div className="modal-body">
             <p>{item.description}</p>
             <Tag language={item.language} />
-            <p>fork: {item.forks}</p>
+            <p className="text-modal">
+              fork: <span>{item.forks}</span>
+            </p>
             {data?.map((item: CommitTransform, index: number) => {
               return (
-                <div key={index}>
-                  <p>author: {item?.author?.name}</p>
-                  <p>message: {item?.message}</p>
-                  <p>
-                    author:{" "}
+                <div key={index} className="info-author">
+                  <p className="text-modal">Author: {item?.author?.name}</p>
+                  <p className="text-modal">Message: {item?.message}</p>
+                  <p className="text-modal">
+                    Commit date:{" "}
                     {dayjs(item?.author?.date!).format("DD/MM/YYYY hh:mm")}
                   </p>
                 </div>

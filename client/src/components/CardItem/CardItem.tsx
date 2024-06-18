@@ -17,6 +17,7 @@ const CardItem: FC<CardItemProps> = ({ item, onOpen }): ReactElement => {
   const { setItem } = useSelectItem(
     useShallow((state) => ({
       setItem: state.setItem,
+      data: state.data,
     }))
   );
   const handleOpenModal = () => {

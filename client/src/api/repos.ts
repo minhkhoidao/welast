@@ -1,4 +1,5 @@
 import axiosInstance from "../config/axios";
+import { Root } from "../types/commitResponse";
 import { IRepoResonpse } from "../types/repoResponse";
 
 export const ListRepos = async (): Promise<IRepoResonpse.Data[]> => {
@@ -14,7 +15,7 @@ export const ListRepos = async (): Promise<IRepoResonpse.Data[]> => {
   }
 };
 
-export const ListCommit = async (name: string) => {
+export const ListCommit = async (name: string): Promise<Root> => {
   try {
     const response = await axiosInstance({
       method: "GET",

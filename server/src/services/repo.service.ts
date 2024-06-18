@@ -6,6 +6,9 @@ export const ListReposService = async () => {
     const response = await axiosInstance({
       method: 'GET',
       url: `${process.env.ADAPTER_ENPOINT}/repos`,
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN ?? ''}`, // Add a GitHub token to avoid the rate limit.
+      },
     });
     const repos = response.data.filter((repo: IRepo) => !repo.fork && repo.forks > 5);
     const data = repos.map((item: IRepo) => {
@@ -30,6 +33,9 @@ export const ListCommitService = async (name?: string) => {
     const response = await axiosInstance({
       method: 'GET',
       url: `${process.env.REPOS_ENPOINT}/${name!}/commits`,
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN ?? ''}`, // Add a GitHub token to avoid the rate limit.
+      },
     });
     const data = response?.data.map((item: any) => {
       return {

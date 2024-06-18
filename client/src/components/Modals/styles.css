@@ -13,24 +13,24 @@
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  overflow-y: scroll;
-  height: 400px;
-}
 
-.close {
-  cursor: pointer;
-  font-size: 28px;
-  color: #dfe6e9;
-}
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  .close {
+    cursor: pointer;
+    font-size: 28px;
+    color: #dfe6e9;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-y: scroll;
+    height: 400px;
+  }
 }
 
 .text-modal {

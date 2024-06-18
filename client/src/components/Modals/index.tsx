@@ -5,6 +5,7 @@ import { useSelectItem } from "../../store/useSelectItem";
 import { useShallow } from "zustand/react/shallow";
 import { CommitTransform } from "../../types/commitResponse";
 import dayjs from "dayjs";
+import { RepoService } from "../../services/repos.service";
 
 interface ModalProps {
   open?: boolean;
@@ -12,13 +13,16 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ open, onClose }) => {
-  const { item, data } = useSelectItem(
+  const { item } = useSelectItem(
     useShallow((state) => ({
       item: state.item,
-      data: state.data,
     }))
   );
+  const { isLoading, data } = RepoService.GetListCommit(item?.name!);
 
+  if (isLoading) {
+    return <p style={{ textAlign: "center" }}>Loading...</p>;
+  }
   return (
     <>
       {open && (

@@ -13,7 +13,7 @@ interface CardItemProps {
 
 const CardItem: FC<CardItemProps> = ({ item, onOpen }): ReactElement => {
   const { name, description, language, forks } = item || {};
-  RepoService.GetListCommit(name);
+
   const { setItem } = useSelectItem(
     useShallow((state) => ({
       setItem: state.setItem,

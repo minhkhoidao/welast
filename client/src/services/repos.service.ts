@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ListCommit, ListRepos } from "../api/repos";
-import { transformKeysToCamelCase } from "../utils/toCamelCase";
 import { ConvertToTimeStamp } from "../utils/convertTimestampt";
-import { useSelectItem } from "../store/useSelectItem";
-import { useShallow } from "zustand/react/shallow";
+import { transformKeysToCamelCase } from "../utils/toCamelCase";
 
 //query key to invalidate cache
 export const QUERY_KEY_LIST_REPOS = "REPOKEY";
@@ -30,11 +28,6 @@ export namespace RepoService {
     });
   };
   export const GetListCommit = (name?: string) => {
-    const { setData } = useSelectItem(
-      useShallow((state) => ({
-        setData: state.setData,
-      }))
-    );
     return useQuery({
       queryKey: [QUERY_KEY_LIST_COMMIT, name],
       queryFn: async () => {
@@ -42,7 +35,6 @@ export namespace RepoService {
         const dataTransform = data?.map((item) =>
           transformKeysToCamelCase(item?.commit)
         );
-        setData(dataTransform);
         return dataTransform;
       },
       staleTime: STALE_TIME,

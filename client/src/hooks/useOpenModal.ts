@@ -5,11 +5,13 @@ const useOpenModal = () => {
 
   const handleOpen = useCallback(() => {
     setOpen(true);
+    window.scrollTo(0, 0);
   }, []);
 
   const handleClose = useCallback(() => {
     setOpen(false);
   }, []);
+
   return {
     open,
     handleOpen,

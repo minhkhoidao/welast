@@ -11,7 +11,7 @@ const ListButton = ({
 }) => {
   return (
     <div className="list-button">
-      {languages.map((language) => (
+      {languages?.map((language) => (
         <button
           key={language}
           onClick={() => filterByLanguage(language)}

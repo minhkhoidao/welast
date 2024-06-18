@@ -1,13 +1,14 @@
 import "./App.css";
 import CardItem from "./components/CardItem/CardItem";
 import ListButton from "./components/ListButton";
+import Modal from "./components/Modals";
 import useDataRepos from "./hooks/useDataRepos";
+import useOpenModal from "./hooks/useOpenModal";
 
 function App() {
   const { renderDataByLanguage, isLoading, languages, filterByLanguage } =
     useDataRepos();
-
-  console.log(renderDataByLanguage, "renderDataByLanguage");
+  const { open, handleClose } = useOpenModal();
 
   return (
     <div className="container">
@@ -19,6 +20,7 @@ function App() {
           return <CardItem key={item?.id} item={item} />;
         })}
       </div>
+      <Modal open={open} onClose={handleClose} />
     </div>
   );
 }

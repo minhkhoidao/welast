@@ -33,18 +33,6 @@
   color: #6c5ce7;
 }
 
-.tag {
-  padding: 5px;
-  width: fit-content;
-  border-radius: 10px;
-}
-
-.language {
-  font-size: 16px;
-  font-weight: 400;
-  color: #dfe6e9;
-}
-
 .detail {
   display: flex;
   align-items: center;

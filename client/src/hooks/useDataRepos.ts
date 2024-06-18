@@ -1,8 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 import { RepoService } from "../services/repos.service";
+import { LIST_LANGUAGES } from "../constant";
 
 const useDataRepos = () => {
-  const { data, isLoading } = RepoService.GetListRepost();
+  const { data = [], isLoading } = RepoService.GetListRepost();
   const [dataLanguage, setDataLanguage] = useState<string>("All");
 
   //filter language and set language to state dataLanguage
@@ -13,20 +14,14 @@ const useDataRepos = () => {
     },
     [data]
   );
-
   // render field langeuage in data
   const languages = useMemo(() => {
-    const uniqueLanguages = data
-      ?.map((repo) => repo.language)
-      .filter(Boolean) || [
-      "TypeScript",
-      "JavaScript",
-      "R",
-      "Python",
-      "CSS",
-      "Jupyter Notebook",
-    ];
-    return ["All", ...new Set(uniqueLanguages)];
+    if (data) {
+      const uniqueLanguages =
+        data?.map((repo) => repo.language).filter(Boolean) ?? LIST_LANGUAGES;
+      return ["All", ...new Set(uniqueLanguages)];
+    }
+    return LIST_LANGUAGES;
   }, [data]);
 
   //render data by language

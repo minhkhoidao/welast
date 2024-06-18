@@ -1,0 +1,31 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 800px;
+  background: #636e72;
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  cursor: pointer;
+  font-size: 28px;
+  color: #dfe6e9;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

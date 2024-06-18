@@ -4,7 +4,6 @@ import { useSelectItem } from "../../store/useSelectItem";
 import { IRepoResonpseTransform } from "../../types/repoResponseTransform";
 import Tag from "../Tag";
 import "./styles.css";
-import { RepoService } from "../../services/repos.service";
 
 interface CardItemProps {
   item?: IRepoResonpseTransform;
@@ -17,7 +16,6 @@ const CardItem: FC<CardItemProps> = ({ item, onOpen }): ReactElement => {
   const { setItem } = useSelectItem(
     useShallow((state) => ({
       setItem: state.setItem,
-      data: state.data,
     }))
   );
   const handleOpenModal = () => {

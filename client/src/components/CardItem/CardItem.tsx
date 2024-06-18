@@ -1,9 +1,8 @@
-import clsx from "clsx";
-import { FC, memo, ReactElement, useState } from "react";
-import { IRepoResonpseTransform } from "../../types/repoResponseTransform";
-import "./styles.css";
-import Tag from "../Tag";
+import { FC, memo, ReactElement } from "react";
 import useOpenModal from "../../hooks/useOpenModal";
+import { IRepoResonpseTransform } from "../../types/repoResponseTransform";
+import Tag from "../Tag";
+import "./styles.css";
 
 interface CardItemProps {
   item?: IRepoResonpseTransform;

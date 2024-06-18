@@ -12,7 +12,7 @@ const useDataRepos = () => {
       setDataLanguage(language);
       return data?.filter((item) => item.language === language);
     },
-    [data]
+    [data],
   );
   // render field langeuage in data
   const languages = useMemo(() => {

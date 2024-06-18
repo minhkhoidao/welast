@@ -18,7 +18,7 @@ export namespace RepoService {
           ?.map((item) => transformKeysToCamelCase(item))
           .sort(
             (a, b) =>
-              ConvertToTimeStamp(b.createdAt) - ConvertToTimeStamp(a.createdAt)
+              ConvertToTimeStamp(b.createdAt) - ConvertToTimeStamp(a.createdAt),
           );
         return dataTransform;
       },

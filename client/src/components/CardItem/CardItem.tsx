@@ -4,6 +4,7 @@ import { useSelectItem } from "../../store/useSelectItem";
 import { IRepoResonpseTransform } from "../../types/repoResponseTransform";
 import Tag from "../Tag";
 import "./styles.css";
+import { RepoService } from "../../services/repos.service";
 
 interface CardItemProps {
   item?: IRepoResonpseTransform;
@@ -12,6 +13,7 @@ interface CardItemProps {
 
 const CardItem: FC<CardItemProps> = ({ item, onOpen }): ReactElement => {
   const { name, description, language, forks } = item || {};
+  RepoService.GetListCommit(name);
   const { setItem } = useSelectItem(
     useShallow((state) => ({
       setItem: state.setItem,

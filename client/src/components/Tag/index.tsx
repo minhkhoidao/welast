@@ -6,7 +6,7 @@ const Tag = ({ language }: { language?: string }) => {
   return (
     <div
       className={clsx("tag", {
-        typescript: language === "Typescript",
+        typescript: language === "TypeScript",
         javascript: language === "JavaScript",
         r: language === "R",
         python: language === "Python",

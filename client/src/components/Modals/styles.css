@@ -26,7 +26,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
 }
 .modal-body {
   display: flex;
@@ -34,9 +33,14 @@
   gap: 5px;
 }
 
-p.text-modal {
+.text-modal {
   font-size: 16px;
   font-weight: bold;
+}
+
+.text-info {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .info-author {

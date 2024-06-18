@@ -3,39 +3,3 @@
   width: fit-content;
   border-radius: 10px;
 }
-
-.language {
-  font-size: 12px;
-  font-weight: 400;
-  color: #dfe6e9;
-}
-
-.typescript {
-  background: #0984e3;
-  color: #fff;
-}
-
-.javascript {
-  background: #fdcb6e;
-  color: #fff;
-}
-
-.r {
-  background: #d63031;
-  color: #fff;
-}
-
-.css {
-  background: #81ecec;
-  color: #fff;
-}
-
-.python {
-  background: #6c5ce7;
-  color: #fff;
-}
-
-.notebook {
-  background: #2d3436;
-  color: #fff;
-}

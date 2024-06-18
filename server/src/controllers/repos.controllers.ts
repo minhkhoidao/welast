@@ -7,22 +7,17 @@ export namespace ReposController {
     try {
       const data = await ListReposService();
       const listCommit = await Promise.all(
-        data?.map((item: IRepo) => {
-          return ListCommitService(item?.name!);
-        }),
+        data
+          ?.map((item: IRepo) => {
+            return ListCommitService(item?.name!);
+          })
+          .filter(Boolean),
       );
-      const commits = listCommit.map((item) => item?.commit!);
 
-      const dataWithCommit = data.map((item: IRepo, index: number) => {
-        return {
-          ...item,
-          commit: commits[index],
-        };
-      });
-      console.log(data, 'dataWithCommit');
       res.status(201).json({
         success: true,
-        data: dataWithCommit,
+        data: data,
+        commits: listCommit,
       });
     } catch (error) {
       console.error(error);

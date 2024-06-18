@@ -8,7 +8,7 @@ import useOpenModal from "./hooks/useOpenModal";
 function App() {
   const { renderDataByLanguage, isLoading, languages, filterByLanguage } =
     useDataRepos();
-  const { open, handleClose } = useOpenModal();
+  const { open, handleClose, handleOpen } = useOpenModal();
 
   return (
     <div className="container">
@@ -17,7 +17,7 @@ function App() {
       <div className="list">
         {isLoading && <p style={{ textAlign: "center" }}>Loading...</p>}
         {renderDataByLanguage?.map((item) => {
-          return <CardItem key={item?.id} item={item} />;
+          return <CardItem key={item?.id} item={item} onOpen={handleOpen} />;
         })}
       </div>
       <Modal open={open} onClose={handleClose} />

@@ -31,7 +31,13 @@ export const ListCommitService = async (name?: string) => {
       method: 'GET',
       url: `${process.env.REPOS_ENPOINT}/${name!}/commits`,
     });
-    return response?.data;
+    const data = response?.data.map((item: any) => {
+      return {
+        commit: item?.commit,
+        committer: item?.committer,
+      };
+    });
+    return data;
   } catch (error) {
     console.error(error);
   }
